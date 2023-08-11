@@ -18,18 +18,18 @@ namespace SRP.Persistence
         {
         }
 
-        public DbSet<Address> Addresses { get; set; }
-        public DbSet<AddressType> AddressTypes { get; set; }
-        public DbSet<Country> Countries { get; set; }
-        public DbSet<Province> Provinces { get; set; }
+        public DbSet<Address> Address { get; set; }
+        public DbSet<AddressType> AddressType { get; set; }
+        public DbSet<Country> Country { get; set; }
+        public DbSet<Province> Province { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Move this to a separate class
-            modelBuilder.Entity<Address>().ToTable("Address", t => t.ExcludeFromMigrations());
-            modelBuilder.Entity<AddressType>().ToTable("AddressType", t => t.ExcludeFromMigrations());
-            modelBuilder.Entity<Country>().ToTable("Country", t => t.ExcludeFromMigrations());
-            modelBuilder.Entity<Province>().ToTable("Province", t => t.ExcludeFromMigrations());
+            //modelBuilder.Entity<Address>().ToTable("Address", t => t.ExcludeFromMigrations());
+            //modelBuilder.Entity<AddressType>().ToTable("AddressType", t => t.ExcludeFromMigrations());
+            //modelBuilder.Entity<Country>().ToTable("Country", t => t.ExcludeFromMigrations());
+            //modelBuilder.Entity<Province>().ToTable("Province", t => t.ExcludeFromMigrations());
 
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(SRPDbContext).Assembly);
             base.OnModelCreating(modelBuilder);

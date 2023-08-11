@@ -24,7 +24,7 @@ namespace SRP.Persistence.Repositories
 
         public async Task<Address> CreateAddressAsync(Address address)
         {
-            var tAddress = await mDbContext.Addresses.AddAsync(address);
+            var tAddress = await mDbContext.Address.AddAsync(address);
             await mDbContext.SaveChangesAsync();
 
             return tAddress.Entity;
@@ -32,7 +32,7 @@ namespace SRP.Persistence.Repositories
 
         public async Task<Address> GetAddressAsync(Guid id)
         {
-            var tAddress = await mDbContext.Addresses
+            var tAddress = await mDbContext.Address
                 .Where(a => a.Id == id)
                 .FirstOrDefaultAsync();
 
@@ -41,14 +41,14 @@ namespace SRP.Persistence.Repositories
 
         public async Task<List<Address>> GetAllAddressTypes()
         {
-            var tAddresses = await mDbContext.Addresses.ToListAsync();
+            var tAddresses = await mDbContext.Address.ToListAsync();
 
             return tAddresses;
         }
 
         public async Task<List<Address>> GetAddressesWithDetailsAsync()
         {
-            var tAddresses = await mDbContext.Addresses
+            var tAddresses = await mDbContext.Address
                 .Include(a => a.AddressType)
                 .ToListAsync();
 
@@ -57,7 +57,7 @@ namespace SRP.Persistence.Repositories
 
         public async Task<Address> GetAddressWithDetailsAsync(Guid id)
         {
-            var tAddress = await mDbContext.Addresses
+            var tAddress = await mDbContext.Address
                 .Include(a => a.AddressType)
                 .Where(a => a.Id == id)
                 .FirstOrDefaultAsync();

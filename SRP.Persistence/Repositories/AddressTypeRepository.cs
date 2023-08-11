@@ -23,7 +23,7 @@ namespace SRP.Persistence.Repositories
 
         public async Task<AddressType> CreateAddressTypeAsync(AddressType addressType)
         {
-            var tAddressType = await mDbContext.AddressTypes.AddAsync(addressType);
+            var tAddressType = await mDbContext.AddressType.AddAsync(addressType);
             await mDbContext.SaveChangesAsync();
 
             return tAddressType.Entity;
@@ -31,7 +31,7 @@ namespace SRP.Persistence.Repositories
 
         public async Task<List<AddressType>> GetAllAddressTypes()
         {
-            var tAddressType = await mDbContext.AddressTypes
+            var tAddressType = await mDbContext.AddressType
                 .ToListAsync();
 
             return tAddressType;
@@ -39,8 +39,8 @@ namespace SRP.Persistence.Repositories
 
         public async Task<List<AddressType>> GetAddressTypesWithDetailsAsync()
         {
-            var tAddressType = await mDbContext.AddressTypes
-                .Include(a => a.Addresses)
+            var tAddressType = await mDbContext.AddressType
+                .Include(a => a.Address)
                 .ToListAsync();
 
             return tAddressType;
@@ -48,8 +48,8 @@ namespace SRP.Persistence.Repositories
 
         public async Task<AddressType> GetAddressTypeWithDetailsAsync(Guid id)
         {
-            var tAddressType = await mDbContext.AddressTypes
-                .Include(a => a.Addresses)
+            var tAddressType = await mDbContext.AddressType
+                .Include(a => a.Address)
                 .FirstOrDefaultAsync(a => a.Id == id);
             
             return tAddressType ?? throw new EntityNotFoundException(id);
