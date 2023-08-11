@@ -84,7 +84,6 @@ namespace SRP.Application.DTOs.Address.Validators
                     return !tExists;
                 })
                 .WithMessage("{PropertyName} is invalid.");
-
         }
     }
 }

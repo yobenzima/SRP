@@ -16,7 +16,12 @@ namespace SRP.Application.Profiles
         public MappingProfile()
         {
             CreateMap<Address, AddressDto>().ReverseMap();
+            CreateMap<Address, CreateAddressDto>().ReverseMap();
+            CreateMap<Address, AddressListDto>().ReverseMap();
+
             CreateMap<AddressType, AddressTypeDto>().ReverseMap();
+            CreateMap<AddressType, AddressTypeListDto>().ReverseMap();
+            CreateMap<AddressType, CreateAddressTypeDto>().ReverseMap();
         }
     }
 }

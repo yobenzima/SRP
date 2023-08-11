@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace SRP.Application.Features.AddressTypes.Handlers.Queries
 {
-    public class GetAddressTypeDetailRequestHandler : IRequestHandler<GetAddressTypeDetailRequest, AddressTypeDto>
+    public class GetAddressTypeDetailRequestHandler : IRequestHandler<GetAddressTypeDetailRequest, AddressTypeListDto>
     {
         private readonly IAddressTypeRepository mAddressTypeRepository;
         private readonly IMapper mMapper;
@@ -24,10 +24,10 @@ namespace SRP.Application.Features.AddressTypes.Handlers.Queries
             mMapper = mapper;
         }
 
-        public async Task<AddressTypeDto> Handle(GetAddressTypeDetailRequest request, CancellationToken cancellationToken)
+        public async Task<AddressTypeListDto> Handle(GetAddressTypeDetailRequest request, CancellationToken cancellationToken)
         {
             var tAddressType = await mAddressTypeRepository.GetByIdAsync(request.Id);
-            return mMapper.Map<AddressTypeDto>(tAddressType);
+            return mMapper.Map<AddressTypeListDto>(tAddressType);
         }
     }
 }

@@ -17,6 +17,6 @@ namespace SRP.Application.DTOs.Address
         public string? City { get; set; }
         public string? PostalCode { get; set; }
         public Guid? CountryId { get; set; }
-        public AddressTypeDto? AddressType { get; set; }
+        public AddressTypeListDto? AddressType { get; set; }
     }
 }

@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace SRP.Application.DTOs.AddressType.Validators
 {
-    public class CreateAddressTypeValidator : AbstractValidator<CreateAddressTypeDto>
+    public class IAddressTypeDtoValidator : AbstractValidator<IAddressTypeDto>
     {
-        public CreateAddressTypeValidator()
+        public IAddressTypeDtoValidator()
         {
             RuleFor(p => p.Name)
                 .NotEmpty()

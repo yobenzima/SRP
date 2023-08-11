@@ -12,6 +12,6 @@ namespace SRP.Application.Features.AddressTypes.Requests.Commands
 {
     public class UpdateAddressTypeCommand : IRequest<Unit>
     {
-        public AddressTypeDto? AddressTypeDto { get; set; }
+        public AddressTypeListDto? AddressTypeDto { get; set; }
     }
 }

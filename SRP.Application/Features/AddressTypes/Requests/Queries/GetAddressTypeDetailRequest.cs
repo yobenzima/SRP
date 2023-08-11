@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace SRP.Application.Features.AddressTypes.Requests.Queries
 {
-    public class GetAddressTypeDetailRequest : IRequest<AddressTypeDto>
+    public class GetAddressTypeDetailRequest : IRequest<AddressTypeListDto>
     {
         public Guid Id { get; set; }
     }
