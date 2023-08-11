@@ -40,7 +40,7 @@ namespace SRP.Application.Features.AddressTypes.Handlers.Commands
                 throw new ValidationException(tValidationResult.Errors);
 
             var tAddressType = mMapper.Map<AddressType>(request.AddressTypeDto);
-            tAddressType = await mAddressTypeRepository.InsertAsync(tAddressType);
+            tAddressType = await mAddressTypeRepository.AddAsync(tAddressType);
             return tAddressType.Id;
         }
     }
