@@ -18,7 +18,6 @@ builder.Services.AddScoped<IAddressService, AddressService>();
 builder.Services.AddScoped<IAddressTypeService, AddressTypeService>();
 builder.Services.AddScoped<ICountryService, CountryService>();
 builder.Services.AddScoped<ILocationService, LocationService>();
-builder.Services.AddSingleton<ILocalStorageService, LocalStorageService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

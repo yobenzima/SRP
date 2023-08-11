@@ -100,7 +100,7 @@ namespace SRP.Persistence.Repositories
                 Insert(tEntity);
         }
 
-        public async Task<T> AddAsync(T entity)
+        public async Task<T> InsertAsync(T entity)
         {
             await mDbContext.AddAsync(entity);
             await mDbContext.SaveChangesAsync();
@@ -110,7 +110,7 @@ namespace SRP.Persistence.Repositories
         public async Task<IEnumerable<T>> InsertAsync(IEnumerable<T> entities)
         {
             foreach(var tEntity in entities)
-                await AddAsync(tEntity);
+                await InsertAsync(tEntity);
 
             return entities;
         }

@@ -41,7 +41,7 @@ public partial interface IRepositoryBase<T> where T : class
     /// </summary>
     /// <param name="entity">Entity</param>
     /// <returns></returns>
-    Task<T> AddAsync(T entity);
+    Task<T> InsertAsync(T entity);
     /// <summary>
     /// Insert entities.
     /// </summary>

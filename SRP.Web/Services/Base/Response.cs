@@ -6,4 +6,5 @@ public class Response<T>
     public bool Success { get; set; }
     public string? ValidationErrors { get; set; }
     public T? Data { get; set; }
+
 }

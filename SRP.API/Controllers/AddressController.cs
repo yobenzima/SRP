@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 using SRP.Application.DTOs.Address;
 using SRP.Application.Features.Addresses.Requests.Commands;
 using SRP.Application.Features.Addresses.Requests.Queries;
-using SRP.Application.Responses;
 
 namespace SRP.API.Controllers
 {
@@ -39,9 +38,7 @@ namespace SRP.API.Controllers
 
         // POST api/<AddressController>
         [HttpPost]
-        [ProducesResponseType(200)]
-        [ProducesResponseType(400)]
-        public async Task<ActionResult<BaseCommandResponse>> Post([FromBody] CreateAddressDto address)
+        public async Task<ActionResult> Post([FromBody] CreateAddressDto address)
         {
             var tCommand = new CreateAddressCommand { AddressDto = address };
             var tResponse = await mMediator.Send(tCommand);
