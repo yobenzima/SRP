@@ -21,6 +21,22 @@ namespace SRP.Persistence.Repositories
             mDbContext = dbContext;
         }
 
+        public async Task<AddressType> CreateAddressTypeAsync(AddressType addressType)
+        {
+            var tAddressType = await mDbContext.AddressTypes.AddAsync(addressType);
+            await mDbContext.SaveChangesAsync();
+
+            return tAddressType.Entity;
+        }
+
+        public async Task<List<AddressType>> GetAllAddressTypes()
+        {
+            var tAddressType = await mDbContext.AddressTypes
+                .ToListAsync();
+
+            return tAddressType;
+        }
+
         public async Task<List<AddressType>> GetAddressTypesWithDetailsAsync()
         {
             var tAddressType = await mDbContext.AddressTypes

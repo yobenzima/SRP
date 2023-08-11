@@ -26,7 +26,7 @@ namespace SRP.Application.Features.AddressTypes.Handlers.Queries
 
         public async Task<List<AddressTypeListDto>> Handle(GetAddressTypeListRequest request, CancellationToken cancellationToken)
         {
-            var tAddressType = await mAddressTypeRepository.GetAllAsync();
+            var tAddressType = await mAddressTypeRepository.GetAllAddressTypes();
             return mMapper.Map<List<AddressTypeListDto>>(tAddressType);
         }
     }

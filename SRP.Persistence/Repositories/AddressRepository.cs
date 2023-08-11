@@ -39,7 +39,7 @@ namespace SRP.Persistence.Repositories
             return tAddress ?? throw new EntityNotFoundException(id);
         }
 
-        public async Task<List<Address>> GetAddressesAsync()
+        public async Task<List<Address>> GetAllAddressTypes()
         {
             var tAddresses = await mDbContext.Addresses.ToListAsync();
 

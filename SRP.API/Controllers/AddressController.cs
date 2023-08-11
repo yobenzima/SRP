@@ -12,7 +12,7 @@ namespace SRP.API.Controllers
     [ApiController]
     public class AddressController : ControllerBase
     {
-        private readonly IMediator mMediator;
+        private readonly IMediator mMediator;   
 
         public AddressController(IMediator mediator)
         {

@@ -1,5 +1,5 @@
 ﻿namespace SRP.Domain.Entities;
 
-public class Location : BaseEntity
+public partial class Location : BaseEntity
 {
 }

@@ -1,5 +1,5 @@
 ﻿namespace SRP.Domain.Entities;
 
-public class Province : BaseEntity
+public partial class Province : BaseEntity
 {
 }

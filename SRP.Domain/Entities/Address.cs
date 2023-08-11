@@ -1,6 +1,6 @@
 ﻿namespace SRP.Domain.Entities;
 
-public class Address : BaseEntity
+public partial class Address : BaseEntity
 {
     /// <summary>
     /// Type of address e.g. Home, Work, etc.

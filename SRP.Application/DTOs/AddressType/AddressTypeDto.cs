@@ -13,6 +13,6 @@ namespace SRP.Application.DTOs.AddressType
     public class AddressTypeDto : BaseDto, IAddressTypeDto
     {
         public string? Name { get; set; }
-        public IList<AddressDto> Addresses { get; set; } = new List<AddressDto>();
+        //public IList<AddressDto> Addresses { get; set; } = new List<AddressDto>();
     }
 }

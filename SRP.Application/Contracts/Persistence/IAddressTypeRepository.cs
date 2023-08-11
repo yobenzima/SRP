@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 namespace SRP.Application.Contracts.Persistence;
 
 public interface IAddressTypeRepository : IRepositoryBase<AddressType>
-{
+{  
+    Task<List<AddressType>> GetAllAddressTypes();
     Task<AddressType> GetAddressTypeWithDetailsAsync(Guid id);
     Task<List<AddressType>> GetAddressTypesWithDetailsAsync();
 }

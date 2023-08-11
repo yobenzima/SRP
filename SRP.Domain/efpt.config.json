@@ -1,0 +1,107 @@
+﻿{
+   "CodeGenerationMode": 3,
+   "ContextClassName": "SRPContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": "SRP.Domain.Entities",
+   "OutputContextPath": null,
+   "OutputPath": "Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "SRP.Domain",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 2,
+   "T4TemplatePath": null,
+   "Tables": [
+      {
+         "Name": "[dbo].[Applicant]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ApplicantType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Application]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Contact]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Document]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[DocumentType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[File]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[FileUserLink]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LegalEntity]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LegalEntityAddressLink]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LegalEntityContactLink]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LegalEntityType]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[LocalMunicipality]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Session]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Status]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Title]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[User]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "lap-ynzima.SRP.dbo",
+   "UncountableWords": null,
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": true,
+   "UseDateOnlyTimeOnly": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSchemaNamespaces": false,
+   "UseSpatial": false,
+   "UseT4": false
+}

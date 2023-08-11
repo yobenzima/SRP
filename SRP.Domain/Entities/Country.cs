@@ -1,5 +1,5 @@
 ﻿namespace SRP.Domain.Entities;
 
-public class Country : BaseEntity
+public partial class Country : BaseEntity
 {
 }
