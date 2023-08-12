@@ -14,10 +14,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SRP.Application.Responses;
 
 namespace SRP.Application.Features.AddressTypes.Handlers.Commands
 {
-    public class CreateAddressTypeCommandHandler : IRequestHandler<CreateAddressTypeCommand, Guid>
+    public class CreateAddressTypeCommandHandler : IRequestHandler<CreateAddressTypeCommand, BaseCommandResponse>
     {
         private readonly IAddressTypeRepository mAddressTypeRepository;
         private readonly IMapper mMapper;
@@ -28,20 +29,32 @@ namespace SRP.Application.Features.AddressTypes.Handlers.Commands
             mMapper = mapper;
         }
 
-        public async Task<Guid> Handle(CreateAddressTypeCommand request, CancellationToken cancellationToken)
+        public async Task<BaseCommandResponse> Handle(CreateAddressTypeCommand request, CancellationToken cancellationToken)
         {
             if(request.AddressTypeDto is null)
                 throw new ArgumentNullException(nameof(request));
 
+            var tResponse = new BaseCommandResponse();
             // Validate request
             var tValidator = new CreateAddressTypeValidator();
             var tValidationResult = await tValidator.ValidateAsync(request.AddressTypeDto, CancellationToken.None);
-            if (!tValidationResult.IsValid)
-                throw new ValidationException(tValidationResult.Errors);
+            if(!tValidationResult.IsValid)
+            {
+                tResponse.Success = false;
+                tResponse.Message = "Create Address Type failed";
+                tResponse.Errors = tValidationResult.Errors.Select(x => x.ErrorMessage).ToList();
+            }
+            else
+            {
+                var tAddressType = mMapper.Map<AddressType>(request.AddressTypeDto);
+                tAddressType = await mAddressTypeRepository.InsertAsync(tAddressType);
+  
+                tResponse.Success = true;
+                tResponse.Message = "Address Type created successfully";
+                tResponse.Id = tAddressType.Id;
+            }
 
-            var tAddressType = mMapper.Map<AddressType>(request.AddressTypeDto);
-            tAddressType = await mAddressTypeRepository.InsertAsync(tAddressType);
-            return tAddressType.Id;
+            return tResponse;
         }
     }
 }

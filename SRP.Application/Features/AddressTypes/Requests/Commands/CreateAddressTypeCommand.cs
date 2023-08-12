@@ -1,6 +1,7 @@
 ﻿using MediatR;
 
 using SRP.Application.DTOs.AddressType;
+using SRP.Application.Responses;
 
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace SRP.Application.Features.AddressTypes.Requests.Commands
 {
-    public class CreateAddressTypeCommand : IRequest<Guid>
+    public class CreateAddressTypeCommand : IRequest<BaseCommandResponse>
     {
         public CreateAddressTypeDto? AddressTypeDto { get; set; }
     }

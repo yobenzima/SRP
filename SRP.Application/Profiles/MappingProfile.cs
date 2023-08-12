@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using SRP.Application.DTOs.Address;
 using SRP.Application.DTOs.AddressType;
+using SRP.Application.DTOs.Country;
 using SRP.Domain.Entities;
 
 using System;
@@ -22,6 +23,10 @@ namespace SRP.Application.Profiles
             CreateMap<AddressType, AddressTypeDto>().ReverseMap();
             CreateMap<AddressType, AddressTypeListDto>().ReverseMap();
             CreateMap<AddressType, CreateAddressTypeDto>().ReverseMap();
+
+            CreateMap<Country, CountryDto>().ReverseMap();
+            CreateMap<Country, CountryListDto>().ReverseMap();
+            CreateMap<Country, CreateCountryDto>().ReverseMap();
         }
     }
 }

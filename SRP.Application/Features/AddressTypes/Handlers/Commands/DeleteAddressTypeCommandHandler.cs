@@ -26,7 +26,7 @@ namespace SRP.Application.Features.AddressTypes.Handlers.Commands
         public async Task<Unit> Handle(DeleteAddressTypeCommand request, CancellationToken cancellationToken)
         {
             if(request is null)
-                return Unit.Value;
+                throw new ArgumentNullException($"{nameof(DeleteAddressTypeCommand)} request is null");
 
             var tAddressType = await mAddressTypeRepository.GetByIdAsync(request.Id) ?? throw new EntityNotFoundException(request.Id);
             await mAddressTypeRepository.DeleteAsync(tAddressType);

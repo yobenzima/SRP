@@ -1,4 +1,7 @@
-﻿using SRP.Application.Contracts.Persistence;
+﻿using Microsoft.EntityFrameworkCore;
+
+using SRP.Application.Contracts.Persistence;
+using SRP.Application.Exceptions;
 using SRP.Domain.Entities;
 
 using System;
@@ -16,14 +19,24 @@ namespace SRP.Persistence.Repositories
         public ProvinceRepository(SRPDbContext dbContext) : base(dbContext)
         {
             mDbContext = dbContext;
-
-            DoNothing();
         }
 
-        // This method is used to remove warning IDE0052: Remove unread private members
-        private void DoNothing()
+        public async Task<bool> CheckProvinceExistsAsync(Guid countryId, string provinceName)
         {
-            Console.WriteLine(mDbContext.Database.ProviderName);
+            return await mDbContext.Province
+                .Where(p => p.CountryId == countryId && 
+                       p.Name == provinceName)
+                .AnyAsync();
+        }
+
+        public async Task<Province> GetProvinceWithDetailsAsync(Guid id)
+        {
+            var tProvince = await mDbContext.Province
+                .Where(p => p.Id == id)
+                .Include(p => p.Country)
+                .FirstOrDefaultAsync(); 
+
+            return tProvince ?? throw new EntityNotFoundException(id);
         }
     }
 }

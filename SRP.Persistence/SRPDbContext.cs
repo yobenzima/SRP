@@ -20,17 +20,30 @@ namespace SRP.Persistence
 
         public DbSet<Address> Address { get; set; }
         public DbSet<AddressType> AddressType { get; set; }
+        public DbSet<ApplicantType> ApplicantType { get; set; }
+        public DbSet<Applicant> Applicant { get; set; }
+        public DbSet<Domain.Entities.Application> Application { get; set; }
+        public DbSet<BEECertificationType> BEECertificationType { get; set; }
+        public DbSet<Contact> Contact { get; set; }
         public DbSet<Country> Country { get; set; }
+        public DbSet<Document> Document { get; set; }
+        public DbSet<DocumentType> DocumentType { get; set; }
+        public DbSet<Domain.Entities.File> File { get; set; }
+        public DbSet<FileUserLink> FileUserLink { get; set; }
+        public DbSet<LegalEntity> LegalEntity { get; set; }
+        public DbSet<LegalEntityAddressLink> LegalEntityAddressLink { get; set; }
+        public DbSet<LegalEntityContactLink> LegalEntityContactLink { get; set; }
+        public DbSet<LegalEntityType> LegalEntityType { get; set; }
+        public DbSet<LocalMunicipality> LocalMunicipality { get; set; }
+        public DbSet<Location> Location { get; set; }
         public DbSet<Province> Province { get; set; }
+        public DbSet<Session> Session { get; set; }
+        public DbSet<Status> Status { get; set; }
+        public DbSet<Title> Title { get; set; }
+        public DbSet<User> User { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Move this to a separate class
-            //modelBuilder.Entity<Address>().ToTable("Address", t => t.ExcludeFromMigrations());
-            //modelBuilder.Entity<AddressType>().ToTable("AddressType", t => t.ExcludeFromMigrations());
-            //modelBuilder.Entity<Country>().ToTable("Country", t => t.ExcludeFromMigrations());
-            //modelBuilder.Entity<Province>().ToTable("Province", t => t.ExcludeFromMigrations());
-
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(SRPDbContext).Assembly);
             base.OnModelCreating(modelBuilder);
         }

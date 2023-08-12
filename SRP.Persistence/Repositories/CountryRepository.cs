@@ -1,4 +1,7 @@
-﻿using SRP.Application.Contracts.Persistence;
+﻿using Microsoft.EntityFrameworkCore;
+
+using SRP.Application.Contracts.Persistence;
+using SRP.Application.Exceptions;
 using SRP.Domain.Entities;
 
 using System;
@@ -16,13 +19,44 @@ namespace SRP.Persistence.Repositories
         public CountryRepository(SRPDbContext dbContext) : base(dbContext)
         {
             mDbContext = dbContext;
-            DoNothing();
         }
 
-        // This method is used to remove warning IDE0052: Remove unread private members
-        private void DoNothing()
+        public async Task<bool> Check2CodeExistsAsync(string a2)
         {
-            Console.WriteLine(mDbContext.Database.ProviderName);
+            return await mDbContext.Country
+                .Where(c => c.A2 == a2)
+                .AnyAsync();
+        }
+
+        public async Task<bool> CheckA3CodeExistsAsync(string a3)
+        {
+            return await mDbContext.Country
+                .Where(c => c.A3 == a3)
+                .AnyAsync();
+        }
+
+        public async Task<bool> CheckDialingCodeExistsAsync(int dialingCode)
+        {
+            return await mDbContext.Country
+                .Where(c => c.DialingCode == dialingCode)
+                .AnyAsync();
+        }
+
+        public async Task<bool> CheckISOExistsAsync(int isoNum)
+        {
+            return await mDbContext.Country
+                .Where(c => c.ISO == isoNum)
+                .AnyAsync();
+        }
+
+        public async Task<Country> GetCountryWithDetailsAsync(Guid id)
+        {
+            var tCountry = await mDbContext.Country
+                .Where(c => c.Id == id)
+                .Include(c => c.Province)
+                .FirstOrDefaultAsync();
+
+            return tCountry ?? throw new EntityNotFoundException(id);
         }
     }
 }

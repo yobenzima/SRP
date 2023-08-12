@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SRP.Domain.Entities;
 
-public partial class Country : BaseEntity
+public partial class Country : BaseSubEntity
 {
     public string Name { get; set; } = null!;
 

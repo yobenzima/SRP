@@ -52,22 +52,25 @@ namespace SRP.Application.Features.Addresses.Handlers.Commands
             // Validate request
             var tValidator = new CreateAddressDtoValidator(mAddressTypeRepository, mCountryRepository, mProvinceRepository);
             var tValidationResult = await tValidator.ValidateAsync(request.AddressDto, CancellationToken.None);
-            
-            if (!tValidationResult.IsValid)
+
+            if(!tValidationResult.IsValid)
             {
                 tResponse.Success = false;
                 tResponse.Message = "Create address failed";
                 tResponse.Errors = tValidationResult.Errors.Select(x => x.ErrorMessage).ToList();
             }
+            else
+            {
+                var tAddress = mMapper.Map<Address>(request.AddressDto);
+                tAddress = await mAddressRepository.InsertAsync(tAddress);
 
-            var tAddress = mMapper.Map<Address>(request.AddressDto);
-            tAddress = await mAddressRepository.InsertAsync(tAddress);
+                tResponse.Success = true;
+                tResponse.Message = "Address created successfully";
+                tResponse.Id = tAddress.Id;
+            }
 
-            tResponse.Success = true;
-            tResponse.Message = "Address created successfully";
-            tResponse.Id = tAddress.Id;
-
-            // Example usage of email service. This is not a good place to put this code. It is here for demonstration purposes only
+            /**
+             * Example usage of email service. This is not a good place to put this code. It is here for demonstration purposes only
             var tEmail = new Email
             {
                 To = "yobenzima@gmail.com",
@@ -87,6 +90,7 @@ namespace SRP.Application.Features.Addresses.Handlers.Commands
                 // simply because an email was not sent.
                 Console.WriteLine(ex.Message);
             }
+            */
 
             return tResponse;
         }

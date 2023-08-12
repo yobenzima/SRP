@@ -36,7 +36,7 @@ namespace SRP.Application.Features.Addresses.Handlers.Commands
         {
             // Check that the request is valid
             if(request.AddressDto is null)
-                return Unit.Value; //TODO: Add proper error handling
+                throw new ArgumentNullException($"{nameof(UpdateAddressCommand)} is null!"); //TODO: Add proper error handling
 
             // Validate the request
             var tAddressValidator = new UpdateAddressDtoValidator(mAddressTypeRepository, mCountryRepository, mProvinceRepository);
