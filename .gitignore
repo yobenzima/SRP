@@ -349,8 +349,5 @@ MigrationBackup/
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
 
-# Other files
-*.nswag
-
-# Other dir
-/NSwag
+# NSwag/NSwag-Initial
+NSwag/NSwag-Initial.nswag

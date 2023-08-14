@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-using SRP.Application.DTOs.Address;
+using SRP.Application.DTOs.Addresses;
 using SRP.Application.Responses;
 
 using System;

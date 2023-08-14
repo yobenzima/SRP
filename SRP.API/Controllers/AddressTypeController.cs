@@ -2,7 +2,7 @@
 
 using Microsoft.AspNetCore.Mvc;
 
-using SRP.Application.DTOs.AddressType;
+using SRP.Application.DTOs.AddressTypes;
 using SRP.Application.Features.AddressTypes.Requests.Commands;
 using SRP.Application.Features.AddressTypes.Requests.Queries;
 

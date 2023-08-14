@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 
 using MediatR;
-using SRP.Application.DTOs.AddressType;
+using SRP.Application.DTOs.AddressTypes;
 using SRP.Application.Features.AddressTypes.Requests.Queries;
 using SRP.Application.Contracts.Persistence;
 

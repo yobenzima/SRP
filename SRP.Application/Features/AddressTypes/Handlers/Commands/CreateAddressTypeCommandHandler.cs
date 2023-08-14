@@ -4,7 +4,7 @@ using FluentValidation;
 
 using MediatR;
 
-using SRP.Application.DTOs.AddressType.Validators;
+using SRP.Application.DTOs.AddressTypes.Validators;
 using SRP.Application.Features.AddressTypes.Requests.Commands;
 using SRP.Application.Contracts.Persistence;
 using SRP.Domain.Entities;

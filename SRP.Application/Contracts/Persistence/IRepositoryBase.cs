@@ -27,8 +27,8 @@ public partial interface IRepositoryBase<T> where T : class
     /// <returns></returns>
     Task<List<T>> GetAllAsync();
 
-    Task<bool> Exists(Expression<Func<T, bool>> predicate);
-    Task<bool> Exists(Guid? id);
+    Task<bool> ExistsByPredicateAsync(Expression<Func<T, bool>> predicate);
+    Task<bool> ExistsAsync(Guid id);
 
     /// <summary>
     /// Insert entity.

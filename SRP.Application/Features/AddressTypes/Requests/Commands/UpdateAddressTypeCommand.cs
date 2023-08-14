@@ -1,6 +1,6 @@
 ﻿using MediatR;
 
-using SRP.Application.DTOs.AddressType;
+using SRP.Application.DTOs.AddressTypes;
 
 using System;
 using System.Collections.Generic;

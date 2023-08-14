@@ -3,7 +3,7 @@
 using MediatR;
 
 using SRP.Application.Contracts.Persistence;
-using SRP.Application.DTOs.Address.Validators;
+using SRP.Application.DTOs.Addresses.Validators;
 using SRP.Application.Exceptions;
 using SRP.Application.Features.Addresses.Requests.Commands;
 
@@ -36,7 +36,7 @@ namespace SRP.Application.Features.Addresses.Handlers.Commands
         {
             // Check that the request is valid
             if(request.AddressDto is null)
-                throw new ArgumentNullException($"{nameof(UpdateAddressCommand)} is null!"); //TODO: Add proper error handling
+                throw new ArgumentNullException($"{request.AddressDto} is null!"); //TODO: Add proper error handling
 
             // Validate the request
             var tAddressValidator = new UpdateAddressDtoValidator(mAddressTypeRepository, mCountryRepository, mProvinceRepository);

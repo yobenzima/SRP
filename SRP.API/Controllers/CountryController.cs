@@ -2,11 +2,11 @@
 
 using Microsoft.AspNetCore.Mvc;
 
-using SRP.Application.DTOs.Country;
+using SRP.Application.DTOs.Countries;
 using SRP.Application.Features.Addresses.Requests.Commands;
 using SRP.Application.Features.Addresses.Requests.Queries;
-using SRP.Application.Features.Country.Requests.Commands;
-using SRP.Application.Features.Country.Requests.Queries;
+using SRP.Application.Features.Countries.Requests.Commands;
+using SRP.Application.Features.Countries.Requests.Queries;
 using SRP.Domain.Entities;
 
 using System.Net;

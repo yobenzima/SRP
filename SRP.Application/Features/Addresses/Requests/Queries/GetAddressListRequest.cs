@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using SRP.Application.DTOs.Address;
+using SRP.Application.DTOs.Addresses;
 using System;
 using System.Collections.Generic;
 using System.Linq;

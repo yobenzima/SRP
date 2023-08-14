@@ -3,7 +3,7 @@
 using MediatR;
 
 using SRP.Application.Contracts.Persistence;
-using SRP.Application.DTOs.Address;
+using SRP.Application.DTOs.Addresses;
 using SRP.Application.Features.Addresses.Requests.Queries;
 
 using System;

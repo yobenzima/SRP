@@ -57,16 +57,14 @@ namespace SRP.Persistence.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<bool> Exists(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
+        public Task<bool> ExistsByPredicateAsync(System.Linq.Expressions.Expression<Func<T, bool>> predicate)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<bool> Exists(Guid? id)
+        public async Task<bool> ExistsAsync(Guid id)
         {
-            if(id == null)
-                return false;
-            var tEntity = await GetByIdAsync(id.Value);
+            var tEntity = await GetByIdAsync(id);
             return tEntity != null;
         }
 

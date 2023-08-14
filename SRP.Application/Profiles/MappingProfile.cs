@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using SRP.Application.DTOs.Address;
-using SRP.Application.DTOs.AddressType;
-using SRP.Application.DTOs.Country;
+using SRP.Application.DTOs.Addresses;
+using SRP.Application.DTOs.AddressTypes;
+using SRP.Application.DTOs.Countries;
 using SRP.Domain.Entities;
 
 using System;
