@@ -10,7 +10,8 @@ using System.Threading.Tasks;
 namespace SRP.Application.DTOs.Provinces
 {
     public class ProvinceDto: BaseDto, IProvinceDto
-    {
+    {  
+        public Guid CountryId { get; set; }
         public string Name { get; set; } = null!;
     }
 }

@@ -10,14 +10,14 @@ namespace SRP.Application.DTOs.Countries
 {
     public interface ICountryDto
     {
-        public string? Name { get; set; }
+        string? Name { get; set; }
 
-        public int ISO { get; set; }
+        int ISO { get; set; }
 
-        public string? A3 { get; set; }
+        string? A3 { get; set; }
 
-        public string? A2 { get; set; }
+        string? A2 { get; set; }
 
-        public int DialingCode { get; set; }
+        int DialingCode { get; set; }
     }
 }

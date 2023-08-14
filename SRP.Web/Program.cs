@@ -18,6 +18,7 @@ builder.Services.AddScoped<IAddressService, AddressService>();
 builder.Services.AddScoped<IAddressTypeService, AddressTypeService>();
 builder.Services.AddScoped<ICountryService, CountryService>();
 builder.Services.AddScoped<ILocationService, LocationService>();
+builder.Services.AddScoped<IProvinceService, ProvinceService>();
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();

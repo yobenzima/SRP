@@ -8,6 +8,7 @@ namespace SRP.Application.DTOs.Provinces
 {
     public interface IProvinceDto
     {
-        public string Name { get; set; }
+        Guid CountryId { get; set; }
+        string Name { get; set; }
     }
 }

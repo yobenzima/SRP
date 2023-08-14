@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SRP.Domain.Entities;
 
-public partial class Province : BaseEntity
+public partial class Province : BaseSubEntity
 {
     public Guid CountryId { get; set; }
 
