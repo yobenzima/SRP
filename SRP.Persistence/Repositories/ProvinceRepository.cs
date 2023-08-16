@@ -21,6 +21,13 @@ namespace SRP.Persistence.Repositories
             mDbContext = dbContext;
         }
 
+        public async Task<bool> CheckProvinceExistsAsync(Guid? id)
+        {
+            return await mDbContext.Province
+                .Where(p => p.Id == id)
+                .AnyAsync();
+        }
+
         public async Task<bool> CheckProvinceExistsAsync(Guid countryId, string provinceName)
         {
             return await mDbContext.Province

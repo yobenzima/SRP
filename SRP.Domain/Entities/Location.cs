@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SRP.Domain.Entities;
 
-public partial class Location : BaseEntity
+public partial class Location : BaseSubEntity
 {
     public Guid? ProvinceId { get; set; }
 
@@ -17,5 +17,5 @@ public partial class Location : BaseEntity
 
     public virtual ICollection<Address> Address { get; set; } = new List<Address>();
 
-    public virtual Province? Province { get; set; }
+    public virtual Province Province { get; set; }
 }

@@ -10,6 +10,7 @@ namespace SRP.Application.Contracts.Persistence;
 
 public interface ILocationRepository : IRepositoryBase<Location>
 {
-    Task<bool> CheckLocationExistsAsync(Guid provinceId, string locationName, long longitude, long latitude);
+    Task<bool> CheckLocationExistsAsync(Guid provinceId, string locationName, decimal longitude, decimal latitude);
     Task<Location> GetLocationWithDetailsAsync(Guid id);
+    Task<List<Location>> GetLocationsByProvinceAsync(Guid provinceId);
 }

@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace SRP.Application.DTOs.Locations;
 
-public class CreateLocationDto
+public class CreateLocationDto : ILocationDto
 {
+    public Guid? ProvinceId { get; set; }
+    public string Name { get; set; } = null!;
+    public decimal Longitude { get; set; }
+    public decimal Latitude { get; set; }
 }
 

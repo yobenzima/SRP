@@ -31,8 +31,8 @@ public class CreateProvinceCommandHandler : IRequestHandler<CreateProvinceComman
 
     public async Task<BaseCommandResponse> Handle(CreateProvinceCommand request, CancellationToken cancellationToken)
     {
-        if(request.ProvinceDto == null)
-            throw new ArgumentException($"{nameof(CreateProvinceCommand)} request object cannot be null");
+        if(request.ProvinceDto is null)
+            throw new ArgumentException(nameof(request.ProvinceDto),  "Request cannot be null!");
 
         var tResponse = new BaseCommandResponse();
         var tValidator = new CreateProvinceDtoValidator(mCountryRepository, mProvinceRepository);

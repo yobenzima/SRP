@@ -16,8 +16,9 @@ public class IProvinceDtoValidator : AbstractValidator<IProvinceDto>
     public IProvinceDtoValidator()
     {
         RuleFor(p => p.Name)
-            .NotEmpty().WithMessage("{PropertyName} is required.")
+            .NotEmpty()
             .NotNull()
+            .WithMessage("{PropertyName} is required.")
             .MaximumLength(50).WithMessage("{PropertyName} must not exceed 100 characters.");
     }
 }

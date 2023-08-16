@@ -26,6 +26,7 @@ namespace SRP.Persistence
             services.AddScoped<IAddressTypeRepository, AddressTypeRepository>();
             services.AddScoped<ICountryRepository, CountryRepository>();
             services.AddScoped<IProvinceRepository, ProvinceRepository>();
+            services.AddScoped<ILocationRepository, LocationRepository>();
             
             return services;
         }

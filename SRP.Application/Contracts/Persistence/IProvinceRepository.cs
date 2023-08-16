@@ -10,6 +10,7 @@ namespace SRP.Application.Contracts.Persistence;
 
 public interface IProvinceRepository : IRepositoryBase<Province>
 {
+    Task<bool> CheckProvinceExistsAsync(Guid? id);
     Task<bool> CheckProvinceExistsAsync(Guid countryId, string provinceName);
     Task<Province> GetProvinceWithDetailsAsync(Guid id);
 }

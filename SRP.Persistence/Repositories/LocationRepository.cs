@@ -21,7 +21,7 @@ namespace SRP.Persistence.Repositories
             mDbContext = dbContext;
         }
 
-        public async Task<bool> CheckLocationExistsAsync(Guid provinceId, string locationName, long longitude, long latitude)
+        public async Task<bool> CheckLocationExistsAsync(Guid provinceId, string locationName, decimal longitude, decimal latitude)
         {
             return await mDbContext.Location
                 .Where(l => l.ProvinceId == provinceId && 
@@ -29,6 +29,15 @@ namespace SRP.Persistence.Repositories
                        l.Longitude == longitude &&
                        l.Latitude == latitude)
                 .AnyAsync();
+        }
+
+        public async Task<List<Location>> GetLocationsByProvinceAsync(Guid provinceId)
+        {
+            return await mDbContext.Location
+                .Where(l => l.ProvinceId == provinceId)
+                .OrderBy(l => l.Name)
+                .ThenBy(l => l.Province.Name)
+                .ToListAsync();
         }
 
         public async Task<Location> GetLocationWithDetailsAsync(Guid id)

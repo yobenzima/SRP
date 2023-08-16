@@ -2,6 +2,7 @@
 using SRP.Application.DTOs.Addresses;
 using SRP.Application.DTOs.AddressTypes;
 using SRP.Application.DTOs.Countries;
+using SRP.Application.DTOs.Locations;
 using SRP.Application.DTOs.Provinces;
 using SRP.Domain.Entities;
 
@@ -32,6 +33,10 @@ namespace SRP.Application.Profiles
             CreateMap<Province, ProvinceDto>().ReverseMap();
             CreateMap<Province, ProvinceListDto>().ReverseMap();
             CreateMap<Province, CreateProvinceDto>().ReverseMap();
+
+            CreateMap<Location, LocationDto>().ReverseMap();
+            CreateMap<Location, LocationListDto>().ReverseMap();
+            CreateMap<Location, CreateLocationDto>().ReverseMap();
         }
     }
 }
