@@ -1,7 +1,11 @@
 ﻿using AutoMapper;
 using SRP.Application.DTOs.Addresses;
 using SRP.Application.DTOs.AddressTypes;
+using SRP.Application.DTOs.ApplicantTypes;
+using SRP.Application.DTOs.BEECertificationTypes;
 using SRP.Application.DTOs.Countries;
+using SRP.Application.DTOs.DocumentTypes;
+using SRP.Application.DTOs.LegalEntityTypes;
 using SRP.Application.DTOs.Locations;
 using SRP.Application.DTOs.Provinces;
 using SRP.Domain.Entities;
@@ -37,6 +41,22 @@ namespace SRP.Application.Profiles
             CreateMap<Location, LocationDto>().ReverseMap();
             CreateMap<Location, LocationListDto>().ReverseMap();
             CreateMap<Location, CreateLocationDto>().ReverseMap();
+
+            CreateMap<BEECertificationType, BEECertificationTypeDto>().ReverseMap();
+            CreateMap<BEECertificationType, BEECertificationTypeListDto>().ReverseMap();
+            CreateMap<BEECertificationType, CreateBEECertificationTypeDto>().ReverseMap();
+
+            CreateMap<ApplicantType, ApplicantTypeDto>().ReverseMap();
+            CreateMap<ApplicantType, ApplicantTypeListDto>().ReverseMap();
+            CreateMap<ApplicantType, CreateApplicantTypeDto>().ReverseMap();
+
+            CreateMap<DocumentType, DocumentTypeDto>().ReverseMap();
+            CreateMap<DocumentType, DocumentTypeListDto>().ReverseMap();
+            CreateMap<DocumentType, CreateDocumentTypeDto>().ReverseMap();
+
+            CreateMap<LegalEntityType, LegalEntityTypeDto>().ReverseMap();
+            CreateMap<LegalEntityType, LegalEntityTypeListDto>().ReverseMap();
+            CreateMap<LegalEntityType, CreateLegalEntityTypeDto>().ReverseMap();
         }
     }
 }

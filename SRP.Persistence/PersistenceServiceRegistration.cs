@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
 using SRP.Application.Contracts.Persistence;
+using SRP.Domain.Entities;
 using SRP.Persistence.Repositories;
 
 using System;
@@ -27,6 +28,10 @@ namespace SRP.Persistence
             services.AddScoped<ICountryRepository, CountryRepository>();
             services.AddScoped<IProvinceRepository, ProvinceRepository>();
             services.AddScoped<ILocationRepository, LocationRepository>();
+            services.AddScoped<IBEECertificationTypeRepository, BEECertificationTypeRepository>();
+            services.AddScoped<IApplicantTypeRepository, ApplicantTypeRepository>();
+            services.AddScoped<IDocumentTypeRepository, DocumentTypeRepository>();
+            services.AddScoped<ILegalEntityTypeRepository, LegalEntityTypeRepository>();
             
             return services;
         }

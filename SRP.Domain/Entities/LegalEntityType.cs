@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace SRP.Domain.Entities;
 
-public partial class LegalEntityType : BaseEntity
+public partial class LegalEntityType : BaseSubEntity
 {
     public string Description { get; set; } = null!;
 
-    public virtual ICollection<LegalEntity> LegalEntity { get; set; } = new List<LegalEntity>();
+    public virtual ICollection<LegalEntity>? LegalEntity { get; set; } = new List<LegalEntity>();
 }

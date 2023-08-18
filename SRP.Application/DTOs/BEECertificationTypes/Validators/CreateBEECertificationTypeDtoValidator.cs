@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SRP.Application.DTOs.AddressTypes.Validators
+namespace SRP.Application.DTOs.BEECertificationTypes.Validators
 {
-    public class CreateAddressTypeValidator : AbstractValidator<CreateAddressTypeDto>
+    public class CreateBEECertificationTypeDtoValidator : AbstractValidator<CreateBEECertificationTypeDto>
     {
-        public CreateAddressTypeValidator()
+        public CreateBEECertificationTypeDtoValidator()
         {
             RuleFor(p => p.Name)
                 .NotEmpty()

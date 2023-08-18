@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SRP.Domain.Entities;
 
-public partial class ApplicantType : BaseEntity
+public partial class ApplicantType : BaseSubEntity
 {
     public string? Code { get; set; }
 

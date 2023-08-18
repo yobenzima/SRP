@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SRP.Domain.Entities;
 
-public partial class DocumentType : BaseEntity
+public partial class DocumentType : BaseSubEntity
 {
     public int SortIndex { get; set; }
 
@@ -13,5 +13,5 @@ public partial class DocumentType : BaseEntity
 
     public string? Description { get; set; }
 
-    public virtual ICollection<Document> Document { get; set; } = new List<Document>();
+    public virtual ICollection<Document>? Document { get; set; } = new List<Document>();
 }

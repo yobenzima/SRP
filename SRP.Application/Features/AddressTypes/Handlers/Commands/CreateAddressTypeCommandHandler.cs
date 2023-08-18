@@ -36,7 +36,7 @@ namespace SRP.Application.Features.AddressTypes.Handlers.Commands
 
             var tResponse = new BaseCommandResponse();
             // Validate request
-            var tValidator = new CreateAddressTypeValidator();
+            var tValidator = new CreateAddressTypeDtoValidator();
             var tValidationResult = await tValidator.ValidateAsync(request.AddressTypeDto, CancellationToken.None);
             if(!tValidationResult.IsValid)
             {

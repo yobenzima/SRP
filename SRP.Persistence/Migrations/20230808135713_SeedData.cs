@@ -24,7 +24,7 @@ namespace SRP.Persistence.Migrations
 
             migrationBuilder.InsertData(
                 table: "AddressType",
-                columns: new[] { "Id", "BeginDate", "EndDate", "Name", "SyncTS" },
+                columns: new[] { "Id", "BeginDate", "EndDate", "Description", "SyncTS" },
                 values: new object[,]
                 {
                     { new Guid("16a4335e-9504-4e54-9673-3b2a438ad349"), new DateTime(2023, 8, 8, 15, 57, 13, 347, DateTimeKind.Local).AddTicks(5910), new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Physical", 638271070333475911L },

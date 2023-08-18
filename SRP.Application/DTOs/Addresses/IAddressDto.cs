@@ -29,7 +29,7 @@ namespace SRP.Application.DTOs.Addresses
         /// </summary>
         public string? Street { get; set; }
         /// <summary>
-        /// Name of the city
+        /// Description of the city
         /// </summary>
         public string? City { get; set; }
         /// <summary>
