@@ -5,9 +5,9 @@ using System.Collections.Generic;
 
 namespace SRP.Domain.Entities;
 
-public partial class Title : BaseEntity
+public partial class Title : BaseSubEntity
 {
     public string Code { get; set; } = null!;
 
-    public string? Description { get; set; }
+    public string Description { get; set; } = null!;
 }

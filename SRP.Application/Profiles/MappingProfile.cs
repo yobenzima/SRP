@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+
 using SRP.Application.DTOs.Addresses;
 using SRP.Application.DTOs.AddressTypes;
 using SRP.Application.DTOs.ApplicantTypes;
@@ -8,6 +9,8 @@ using SRP.Application.DTOs.DocumentTypes;
 using SRP.Application.DTOs.LegalEntityTypes;
 using SRP.Application.DTOs.Locations;
 using SRP.Application.DTOs.Provinces;
+using SRP.Application.DTOs.Statuses;
+using SRP.Application.DTOs.Titles;
 using SRP.Domain.Entities;
 
 using System;
@@ -57,6 +60,14 @@ namespace SRP.Application.Profiles
             CreateMap<LegalEntityType, LegalEntityTypeDto>().ReverseMap();
             CreateMap<LegalEntityType, LegalEntityTypeListDto>().ReverseMap();
             CreateMap<LegalEntityType, CreateLegalEntityTypeDto>().ReverseMap();
+
+            CreateMap<Status, StatusDto>().ReverseMap();
+            CreateMap<Status, StatusListDto>().ReverseMap();
+            CreateMap<Status, CreateStatusDto>().ReverseMap();
+
+            CreateMap<Title, TitleDto>().ReverseMap();
+            CreateMap<Title, TitleListDto>().ReverseMap();
+            CreateMap<Title, CreateTitleDto>().ReverseMap();
         }
     }
 }

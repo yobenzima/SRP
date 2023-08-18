@@ -21,7 +21,7 @@ namespace SRP.API.Controllers
 
         // GET: api/<ProvinceController>
         [HttpGet]
-        public async Task<ActionResult<List<ProvinceDto>>> Get()
+        public async Task<ActionResult<List<ProvinceListDto>>> Get()
         {
             var tProvinces = await mMediator.Send(new GetProvinceListRequest());
             return Ok(tProvinces);
@@ -62,6 +62,5 @@ namespace SRP.API.Controllers
             await mMediator.Send(tCommand);
             return NoContent();
         }
-
     }
 }
