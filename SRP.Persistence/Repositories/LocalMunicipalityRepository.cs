@@ -11,26 +11,28 @@ using System.Threading.Tasks;
 
 namespace SRP.Persistence.Repositories;
 
-public class TitleRepository : RepositoryBase<Title>, ITitleRepository
+public class LocalMunicipalityRepository : RepositoryBase<LocalMunicipality>, ILocalMunicipalityRepository
 {
     private readonly SRPDbContext mDbContext;
 
-    public TitleRepository(SRPDbContext dbContext) : base(dbContext)
+    public LocalMunicipalityRepository(SRPDbContext dbContext) : base(dbContext)
     {
         mDbContext = dbContext;
     }
 
-    public async Task<bool> CheckDescriptionExistsAsync(string description)
+    public async Task<bool> CheckNameExistsAsync(string name)
     {
-        return await mDbContext.Title
-            .Where(d => d.Description == description)
+        return await mDbContext.LocalMunicipality
+            .Where(d => d.Name == name)
             .AnyAsync();
     }
 
     public async Task<bool> IsCodeUnique(string code)
     {
-        return await mDbContext.Title
+        var tLocalMunicipality = await mDbContext.LocalMunicipality
             .Where(d => d.Code == code)
-            .AnyAsync();
+            .SingleOrDefaultAsync();
+
+        return tLocalMunicipality == null;
     }
 }

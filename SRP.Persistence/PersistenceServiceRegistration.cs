@@ -34,6 +34,7 @@ namespace SRP.Persistence
             services.AddScoped<ILegalEntityTypeRepository, LegalEntityTypeRepository>();
             services.AddScoped<IStatusRepository, StatusRepository>();
             services.AddScoped<ITitleRepository, TitleRepository>();
+            services.AddScoped<ILocalMunicipalityRepository, LocalMunicipalityRepository>();
             
             return services;
         }

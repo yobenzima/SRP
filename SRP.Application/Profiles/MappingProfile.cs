@@ -7,6 +7,7 @@ using SRP.Application.DTOs.BEECertificationTypes;
 using SRP.Application.DTOs.Countries;
 using SRP.Application.DTOs.DocumentTypes;
 using SRP.Application.DTOs.LegalEntityTypes;
+using SRP.Application.DTOs.LocalMunicipalities;
 using SRP.Application.DTOs.Locations;
 using SRP.Application.DTOs.Provinces;
 using SRP.Application.DTOs.Statuses;
@@ -68,6 +69,10 @@ namespace SRP.Application.Profiles
             CreateMap<Title, TitleDto>().ReverseMap();
             CreateMap<Title, TitleListDto>().ReverseMap();
             CreateMap<Title, CreateTitleDto>().ReverseMap();
+
+            CreateMap<LocalMunicipality, LocalMunicipalityDto>().ReverseMap();
+            CreateMap<LocalMunicipality, LocalMunicipalityListDto>().ReverseMap();
+            CreateMap<LocalMunicipality, CreateLocalMunicipalityDto>().ReverseMap();
         }
     }
 }

@@ -23,14 +23,14 @@ public class StatusRepository : RepositoryBase<Status>, IStatusRepository
     public async Task<bool> CheckDescriptionExistsAsync(string description)
     {
         return await mDbContext.Status
-            .Where(d => d.Description.ToLowerInvariant() == description.ToLowerInvariant())
+            .Where(d => d.Description== description)
             .AnyAsync();
     }
 
     public async Task<bool> IsCodeUnique(string code)
     {
         return await mDbContext.Status
-            .Where(d => d.Code.ToLowerInvariant() == code.ToLowerInvariant())
+            .Where(d => d.Code == code)
             .AnyAsync();
     }
 }

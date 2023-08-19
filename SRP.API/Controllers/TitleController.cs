@@ -38,18 +38,18 @@ namespace SRP.API.Controllers
 
         // POST api/<TitleController>
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] CreateTitleDto province)
+        public async Task<ActionResult> Post([FromBody] CreateTitleDto title)
         {
-            var tCommand = new CreateTitleCommand { TitleDto = province };
+            var tCommand = new CreateTitleCommand { TitleDto = title };
             var tResponse = await mMediator.Send(tCommand);
             return Ok(tResponse);
         }
 
         // PUT api/<TitleController>/5
         [HttpPut("{id:guid}")]
-        public async Task<ActionResult> Put(Guid id, [FromBody] UpdateTitleDto province)
+        public async Task<ActionResult> Put(Guid id, [FromBody] UpdateTitleDto title)
         {
-            var tCommand = new UpdateTitleCommand { Id = id, TitleDto = province };
+            var tCommand = new UpdateTitleCommand { Id = id, TitleDto = title };
             await mMediator.Send(tCommand);
             return NoContent();
         }

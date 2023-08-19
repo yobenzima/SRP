@@ -24,7 +24,7 @@ public class DocumentTypeRepository : RepositoryBase<DocumentType>, IDocumentTyp
     public async Task<bool> CheckNameExistsAsync(string name)
     {
         return await mDbContext.DocumentType
-             .Where(d => d.Name.ToLowerInvariant() == name.ToLowerInvariant())
+             .Where(d => d.Name == name)
              .AnyAsync();
     }
 

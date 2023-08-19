@@ -44,11 +44,11 @@ namespace SRP.API.Controllers
 
         // POST api/<ApplicantTypeController>
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] CreateApplicantTypeDto addressType)
+        public async Task<ActionResult> Post([FromBody] CreateApplicantTypeDto applicantType)
         {
             var tCommand = new CreateApplicantTypeCommand
             {
-                ApplicantTypeDto = addressType
+                ApplicantTypeDto = applicantType
             };
             var tResponse = await mMediator.Send(tCommand);
             return Ok(tResponse);
@@ -56,12 +56,12 @@ namespace SRP.API.Controllers
 
         // PUT api/<ApplicantTypeController>/5
         [HttpPut("{id:guid}")]
-        public async Task<ActionResult> Put(Guid id, [FromBody] UpdateApplicantTypeDto addressType)
+        public async Task<ActionResult> Put(Guid id, [FromBody] UpdateApplicantTypeDto applicantType)
         {
             var tCommand = new UpdateApplicantTypeCommand
             {
                 Id = id,
-                ApplicantTypeDto = addressType
+                ApplicantTypeDto = applicantType
             };
             await mMediator.Send(tCommand);
             return NoContent();

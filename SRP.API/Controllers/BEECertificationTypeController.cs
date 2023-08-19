@@ -42,18 +42,18 @@ namespace SRP.API.Controllers
 
         // POST api/<BEECertificationTypeController>
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] CreateBEECertificationTypeDto address)
+        public async Task<ActionResult> Post([FromBody] CreateBEECertificationTypeDto certificationType)
         {
-            var tCommand = new CreateBEECertificationTypeCommand { BEECertificationTypeDto = address };
+            var tCommand = new CreateBEECertificationTypeCommand { BEECertificationTypeDto = certificationType };
             var tResponse = await mMediator.Send(tCommand);
             return Ok(tResponse);
         }
 
         // PUT api/<BEECertificationTypeController>/5
         [HttpPut("{id:guid}")]
-        public async Task<ActionResult> Put(Guid id, [FromBody] UpdateBEECertificationTypeDto address)
+        public async Task<ActionResult> Put(Guid id, [FromBody] UpdateBEECertificationTypeDto certificationType)
         {
-            var tCommand = new UpdateBEECertificationTypeCommand { Id = id, BEECertificationTypeDto = address };
+            var tCommand = new UpdateBEECertificationTypeCommand { Id = id, BEECertificationTypeDto = certificationType };
             await mMediator.Send(tCommand);
             return NoContent();
         }

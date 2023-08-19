@@ -32,7 +32,7 @@ namespace SRP.Persistence.Repositories
         {
             return await mDbContext.Province
                 .Where(p => p.CountryId == countryId && 
-                       p.Name.ToLowerInvariant() == provinceName.ToLowerInvariant())
+                       p.Name == provinceName)
                 .AnyAsync();
         }
 

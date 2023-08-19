@@ -40,18 +40,18 @@ namespace SRP.API.Controllers
 
         // POST api/<StatusController>
         [HttpPost]
-        public async Task<ActionResult> Post([FromBody] CreateStatusDto province)
+        public async Task<ActionResult> Post([FromBody] CreateStatusDto status)
         {
-            var tCommand = new CreateStatusCommand { StatusDto = province };
+            var tCommand = new CreateStatusCommand { StatusDto = status };
             var tResponse = await mMediator.Send(tCommand);
             return Ok(tResponse);
         }
 
         // PUT api/<StatusController>/5
         [HttpPut("{id:guid}")]
-        public async Task<ActionResult> Put(Guid id, [FromBody] UpdateStatusDto province)
+        public async Task<ActionResult> Put(Guid id, [FromBody] UpdateStatusDto status)
         {
-            var tCommand = new UpdateStatusCommand { Id = id, StatusDto = province };
+            var tCommand = new UpdateStatusCommand { Id = id, StatusDto = status };
             await mMediator.Send(tCommand);
             return NoContent();
         }

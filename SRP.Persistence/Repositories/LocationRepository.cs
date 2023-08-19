@@ -25,7 +25,7 @@ namespace SRP.Persistence.Repositories
         {
             return await mDbContext.Location
                 .Where(l => l.ProvinceId == provinceId && 
-                       l.Name.ToLower() == locationName.ToLowerInvariant() &&
+                       l.Name.ToLower() == locationName &&
                        l.Longitude == longitude &&
                        l.Latitude == latitude)
                 .AnyAsync();

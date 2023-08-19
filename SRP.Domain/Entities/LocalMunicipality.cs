@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SRP.Domain.Entities;
 
-public partial class LocalMunicipality : BaseEntity
+public partial class LocalMunicipality : BaseSubEntity
 {
     public string Code { get; set; } = null!;
 

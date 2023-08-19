@@ -23,7 +23,7 @@ public class LegalEntityTypeRepository : RepositoryBase<LegalEntityType>, ILegal
     public async Task<bool> CheckDescriptionExistsAsync(string description)
     {
         return await mDbContext.LegalEntityType
-             .Where(d => d.Description.ToLowerInvariant() == description.ToLowerInvariant())
+             .Where(d => d.Description == description)
              .AnyAsync();
     }
 }
