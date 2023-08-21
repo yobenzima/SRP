@@ -35,6 +35,7 @@ namespace SRP.Application
             // FluentValidation
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
+            services.AddMemoryCache();
             // Return the services that have been configured
             return services;
         }

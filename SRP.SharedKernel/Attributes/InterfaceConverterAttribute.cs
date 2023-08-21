@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace SRP.Domain.Attributes;
+namespace SRP.SharedKernel.Attributes;
 
 [AttributeUsage(AttributeTargets.Interface)]
 public class InterfaceConverterAttribute : JsonConverterAttribute

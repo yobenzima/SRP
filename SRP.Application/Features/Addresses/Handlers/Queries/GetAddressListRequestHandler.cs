@@ -5,6 +5,7 @@ using MediatR;
 using SRP.Application.Contracts.Persistence;
 using SRP.Application.DTOs.Addresses;
 using SRP.Application.Features.Addresses.Requests.Queries;
+using SRP.Domain.Entities;
 
 using System;
 using System.Collections.Generic;

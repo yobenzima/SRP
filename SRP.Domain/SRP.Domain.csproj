@@ -10,4 +10,8 @@
     <Folder Include="Abstractions\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SRP.SharedKernel\SRP.SharedKernel.csproj" />
+  </ItemGroup>
+
 </Project>

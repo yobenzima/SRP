@@ -25,7 +25,8 @@ namespace SRP.Persistence
             services.AddScoped(typeof(IRepositoryBase<>), typeof(RepositoryBase<>));
             services.AddScoped<IAddressRepository, AddressRepository>();
             services.AddScoped<IAddressTypeRepository, AddressTypeRepository>();
-            services.AddScoped<ICountryRepository, CountryRepository>();
+            services.AddScoped<CountryRepository>();
+            services.AddScoped<ICountryRepository, CachedCountryRepository>();
             services.AddScoped<IProvinceRepository, ProvinceRepository>();
             services.AddScoped<ILocationRepository, LocationRepository>();
             services.AddScoped<IBEECertificationTypeRepository, BEECertificationTypeRepository>();

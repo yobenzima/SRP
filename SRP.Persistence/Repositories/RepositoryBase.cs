@@ -79,7 +79,7 @@ namespace SRP.Persistence.Repositories
             return tEntity ?? throw new EntityNotFoundException(id);
         }
 
-        public async Task<T> GetByIdAsync(Guid id)
+        public virtual async Task<T?> GetByIdAsync(Guid id)
         {
             var tEntity = await mDbContext.Set<T>().FindAsync(id);
             return tEntity ?? throw new EntityNotFoundException(id);

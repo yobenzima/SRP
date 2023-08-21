@@ -1,5 +1,4 @@
 ﻿using SRP.Domain.Data;
-using SRP.Domain.Attributes;
 
 using System;
 using System.Collections.Generic;
@@ -7,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
+using SRP.SharedKernel.Attributes;
 
 namespace SRP.Domain
 {

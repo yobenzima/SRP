@@ -20,7 +20,7 @@ public partial interface IRepositoryBase<T> where T : class
     /// </summary>
     /// <param name="id">Identifier</param>
     /// <returns>Entity</returns>
-    Task<T> GetByIdAsync(Guid id);
+    Task<T?> GetByIdAsync(Guid id);
     /// <summary>
     /// Get all entities
     /// </summary>
