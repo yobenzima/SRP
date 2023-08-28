@@ -25,7 +25,7 @@ public partial interface IRepositoryBase<T> where T : class
     /// Get all entities
     /// </summary>
     /// <returns></returns>
-    Task<List<T>> GetAllAsync();
+    Task<List<T>?> GetAllAsync();
 
     Task<bool> ExistsByPredicateAsync(Expression<Func<T, bool>> predicate);
     Task<bool> ExistsAsync(Guid id);

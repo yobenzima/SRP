@@ -7,11 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Abstractions\" />
+    <ProjectReference Include="..\SRP.SharedKernel\SRP.SharedKernel.csproj" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SRP.SharedKernel\SRP.SharedKernel.csproj" />
+    <Folder Include="Abstractions\" />
   </ItemGroup>
 
 </Project>

@@ -9,6 +9,6 @@ public interface ICacheBase : IDisposable
     T Get<T>(string key, Func<T> acquire);
     T Get<T>(string key, Func<T> acquire, int cacheTime);
     Task RemoveAsync(string key, bool publisher = true);
-    Task RemoveByPrefixAsync(string pattern, bool publisher = true);
+    Task RemoveByPrefix(string prefix, bool publisher = true);
     Task Clear(bool publisher = true);
 }

@@ -121,7 +121,7 @@ public class MemoryCacheBase : ICacheBase
         return Task.CompletedTask;
     }
 
-    public virtual Task RemoveByPrefixAsync(string pattern, bool publisher = true)
+    public virtual Task RemoveByPrefix(string pattern, bool publisher = true)
     {
         // Get cache keys that matches our pattern
         var tEntriesToRemove = CacheEntries.Keys.Where(p => p.StartsWith(pattern, StringComparison.OrdinalIgnoreCase)).ToList();

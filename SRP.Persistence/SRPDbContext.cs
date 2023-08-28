@@ -41,6 +41,9 @@ namespace SRP.Persistence
         public DbSet<Status> Status { get; set; }
         public DbSet<Title> Title { get; set; }
         public DbSet<User> User { get; set; }
+        public DbSet<UserGroup> UserGroup { get; set; }
+        public DbSet<Permission> Permission { get; set; }
+        public DbSet<PermissionAction> PermissionAction { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

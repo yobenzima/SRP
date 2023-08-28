@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+using SRP.Application.Contracts.Infrastructure;
 using SRP.Application.Contracts.Persistence;
 using SRP.Domain.Entities;
 using SRP.Persistence.Repositories;
@@ -26,7 +28,14 @@ namespace SRP.Persistence
             services.AddScoped<IAddressRepository, AddressRepository>();
             services.AddScoped<IAddressTypeRepository, AddressTypeRepository>();
             services.AddScoped<CountryRepository>();
-            services.AddScoped<ICountryRepository, CachedCountryRepository>();
+            /*
+             * services.AddScoped<ICountryRepository, CachedCountryRepository>();
+             * 
+             * Can also be "decorated" as follows:
+             * 
+             * TODO: Investigate using LazyCache instead of IMemoryCache.
+             */
+            services.AddScoped<ICountryRepository>(c => new CachedCountryRepository(c.GetRequiredService<SRPDbContext>(), c.GetRequiredService<CountryRepository>(), c.GetRequiredService<ICacheBase>()));
             services.AddScoped<IProvinceRepository, ProvinceRepository>();
             services.AddScoped<ILocationRepository, LocationRepository>();
             services.AddScoped<IBEECertificationTypeRepository, BEECertificationTypeRepository>();
@@ -36,7 +45,9 @@ namespace SRP.Persistence
             services.AddScoped<IStatusRepository, StatusRepository>();
             services.AddScoped<ITitleRepository, TitleRepository>();
             services.AddScoped<ILocalMunicipalityRepository, LocalMunicipalityRepository>();
-            
+            services.AddScoped<IPermissionActionRepository, PermissionActionRepository>();
+            services.AddScoped<IPermissionRepository, PermissionRepository>();
+      
             return services;
         }
     }

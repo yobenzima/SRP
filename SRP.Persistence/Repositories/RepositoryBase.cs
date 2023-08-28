@@ -68,7 +68,7 @@ namespace SRP.Persistence.Repositories
             return tEntity != null;
         }
 
-        public async Task<List<T>> GetAllAsync()
+        public virtual async Task<List<T>?> GetAllAsync()
         {
             return await mDbContext.Set<T>().ToListAsync();
         }
