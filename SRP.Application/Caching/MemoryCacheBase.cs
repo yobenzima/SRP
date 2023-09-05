@@ -36,12 +36,12 @@ public class MemoryCacheBase : ICacheBase
     #endregion
 
     #region Methods
-    public T Get<T>(string key, Func<T> acquire)
+    public T? Get<T>(string key, Func<T?> acquire)
     {
         return Get(key, acquire, CommonHelper.CacheTimeInMinutes);
     }
 
-    public T Get<T>(string key, Func<T> acquire, int cacheTime)
+    public T? Get<T>(string key, Func<T?> acquire, int cacheTime)
     {
         if(mMemoryCache.TryGetValue(key, out T? tCacheEntry)) return tCacheEntry;
         SemaphoreSlim? tSemaphoreSlim = CacheEntries.GetOrAdd(key, new SemaphoreSlim(1, 1));
@@ -74,7 +74,7 @@ public class MemoryCacheBase : ICacheBase
     /// <param name="key"></param>
     /// <param name="acquire"></param>
     /// <returns></returns>
-    public virtual Task<T> GetAsync<T>(string key, Func<Task<T>> acquire)
+    public virtual Task<T?> GetAsync<T>(string key, Func<Task<T?>> acquire)
     {
         return GetAsync(key, acquire, CommonHelper.CacheTimeInMinutes);
     }
@@ -87,10 +87,10 @@ public class MemoryCacheBase : ICacheBase
     /// <param name="acquire"></param>
     /// <param name="cacheTime"></param>
     /// <returns></returns>
-    public virtual async Task<T> GetAsync<T>(string key, Func<Task<T>> acquire, int cacheTime)
+    public virtual async Task<T?> GetAsync<T>(string key, Func<Task<T?>> acquire, int cacheTime)
     {
-        if(mMemoryCache.TryGetValue(key, out T tCacheEntry)) return tCacheEntry;
-        SemaphoreSlim? tSemaphoreSlim = CacheEntries.GetOrAdd(key, new SemaphoreSlim(1, 1));
+        if(mMemoryCache.TryGetValue(key, out T? tCacheEntry)) return tCacheEntry;
+        SemaphoreSlim? tSemaphoreSlim = CacheEntries.GetOrAdd(key, new SemaphoreSlim(10, 10));
         await tSemaphoreSlim.WaitAsync();
         try
         {

@@ -8,8 +8,8 @@ namespace SRP.Domain.Entities;
 
 public class Permission : BaseSubEntity
 {
-    private ICollection<string>? mUserGroups;
-    private ICollection<string>? mPermissionActions;
+    //private ICollection<string>? mUserGroups;
+    //private ICollection<string>? mPermissionActions;
 
     /// <summary>
     /// Gets or sets the permission name
@@ -34,18 +34,18 @@ public class Permission : BaseSubEntity
     /// <summary>
     /// Gets or sets user groups
     /// </summary>
-    public virtual ICollection<string> UserGroups
-    {
-        get { return mUserGroups ??= new List<string>(); }
-        protected set { mUserGroups = value; }
-    }
+    //public virtual ICollection<string> UserGroups
+    //{
+    //    get { return mUserGroups ??= new List<string>(); }
+    //    protected set { mUserGroups = value; }
+    //}
 
     /// <summary>
     /// Gets or sets actions
     /// </summary>
-    public virtual ICollection<string> PermissionActions
-    {
-        get { return mPermissionActions ??= new List<string>(); }
-        set { mPermissionActions = value; }
-    }
+    //public virtual ICollection<string> PermissionActions
+    //{
+    //    get { return mPermissionActions ??= new List<string>(); }
+    //    set { mPermissionActions = value; }
+    //}
 }

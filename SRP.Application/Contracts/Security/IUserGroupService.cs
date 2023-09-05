@@ -75,7 +75,7 @@ public interface IUserGroupService
     /// </summary>
     /// <param name="userGroupId">User group identifier</param>
     /// <returns>User group</returns>
-    Task<UserGroup> GetUserGroupById(string userGroupId);
+    Task<UserGroup?> GetUserGroupById(Guid userGroupId);
 
     /// <summary>
     /// Gets a user group
@@ -89,7 +89,7 @@ public interface IUserGroupService
     /// </summary>
     /// <param name="ids">Group id's </param>
     /// <returns>User groups</returns>
-    Task<IList<UserGroup>> GetAllByIds(string[] ids);
+    Task<IList<UserGroup>> GetAllByIds(Guid[] ids);
 
     /// <summary>
     /// Gets all user groups

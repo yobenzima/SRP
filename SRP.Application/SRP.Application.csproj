@@ -18,11 +18,18 @@
     <PackageReference Include="MediatR" Version="12.1.1" />
     <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="7.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="7.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
-    <PackageReference Include="StackExchange.Redis" Version="2.6.122" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SRP.Data.MySQL\SRP.Data.MySQL.csproj" />
+    <ProjectReference Include="..\SRP.Data.PostgreSQL\SRP.Data.PostgreSQL.csproj" />
+    <ProjectReference Include="..\SRP.Data.Sqlite\SRP.Data.Sqlite.csproj" />
+    <ProjectReference Include="..\SRP.Data.SQLServer\SRP.Data.SQLServer.csproj" />
     <ProjectReference Include="..\SRP.Domain\SRP.Domain.csproj" />
   </ItemGroup>
 

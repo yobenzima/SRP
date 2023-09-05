@@ -1,4 +1,9 @@
-﻿using SRP.Application.Contracts.Security;
+﻿using MediatR;
+
+using SRP.Application.Caching.Constants;
+using SRP.Application.Contracts.Infrastructure;
+using SRP.Application.Contracts.Persistence;
+using SRP.Application.Contracts.Security;
 using SRP.Domain;
 using SRP.Domain.Entities;
 
@@ -12,62 +17,77 @@ namespace SRP.Infrastructure.Security;
 
 public class UserGroupService : IUserGroupService
 {
-    public Task DeleteUserGroup(UserGroup userGroup)
+    private IUserGroupRepository mUserGroupRepository;
+    private readonly ICacheBase mCacheBase;
+    private readonly IMediator mMediator;
+
+    public UserGroupService(IUserGroupRepository userGroupRepository, ICacheBase cacheBase, IMediator mediator)
+    {
+        mUserGroupRepository = userGroupRepository;
+        mCacheBase = cacheBase;
+        mMediator = mediator;
+    }
+
+    public virtual Task DeleteUserGroup(UserGroup userGroup)
     {
         throw new NotImplementedException();
     }
 
-    public Task<IList<UserGroup>> GetAllByIds(string[] ids)
+    public virtual Task<IList<UserGroup>> GetAllByIds(Guid[] ids)
     {
         throw new NotImplementedException();
     }
 
-    public Task<IPagedList<UserGroup>> GetAllUserGroups(string name = "", int pageIndex = 0, int pageSize = int.MaxValue, bool showHidden = false)
+    public virtual Task<IPagedList<UserGroup>> GetAllUserGroups(string name = "", int pageIndex = 0, int pageSize = int.MaxValue, bool showHidden = false)
     {
         throw new NotImplementedException();
     }
 
-    public Task<UserGroup> GetUserGroupById(string userGroupId)
+    public virtual Task<UserGroup?> GetUserGroupById(Guid userGroupId)
+    {
+        if(userGroupId == Guid.Empty )
+            return Task.FromResult<UserGroup?>(null);
+
+        var tKey = String.Format(CacheKey.USERGROUP_BY_ID_KEY, userGroupId);
+        return mCacheBase.GetAsync(tKey, () => mUserGroupRepository.GetByIdAsync(userGroupId));
+    }
+
+    public virtual Task<UserGroup> GetUserGroupBySystemName(string systemName)
     {
         throw new NotImplementedException();
     }
 
-    public Task<UserGroup> GetUserGroupBySystemName(string systemName)
+    public virtual Task InsertUserGroup(UserGroup userGroup)
     {
         throw new NotImplementedException();
     }
 
-    public Task InsertUserGroup(UserGroup userGroup)
+    public virtual Task<bool> IsAdmin(User user)
     {
         throw new NotImplementedException();
     }
 
-    public Task<bool> IsAdmin(User user)
+    public virtual Task<bool> IsGuest(User user)
     {
         throw new NotImplementedException();
     }
 
-    public Task<bool> IsGuest(User user)
+    public virtual Task<bool> IsInUserGroup(User user, string userGroupSystemName, bool onlyActiveUserGroups = true, bool? isSystem = null)
     {
         throw new NotImplementedException();
     }
 
-    public Task<bool> IsInUserGroup(User user, string userGroupSystemName, bool onlyActiveUserGroups = true, bool? isSystem = null)
+    public virtual Task<bool> IsRegistered(User user)
     {
         throw new NotImplementedException();
     }
 
-    public Task<bool> IsRegistered(User user)
+    public virtual Task<bool> IsStaff(User user)
     {
         throw new NotImplementedException();
     }
 
-    public Task<bool> IsStaff(User user)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task UpdateUserGroup(UserGroup userGroup)
+    public virtual Task UpdateUserGroup(UserGroup userGroup)
     {
         throw new NotImplementedException();
     }

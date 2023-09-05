@@ -1,9 +1,11 @@
 ﻿using FluentValidation;
 
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Configuration.EnvironmentVariables;
+using Microsoft.Extensions.Configuration.Json;
 
 using SRP.Application.Contracts.Infrastructure;
-using SRP.Application.Contracts.Security;
 using SRP.Infrastructure.Caching;
 
 using StackExchange.Redis;
@@ -19,6 +21,7 @@ namespace SRP.Application
 {
     public static class ApplicationServicesRegistration
     {
+        private static readonly string REDIS_CONNECTION = "REDIS_CONNECTION";
         /// <summary>
         /// This method is used to register all application services.
         /// </summary>
@@ -43,8 +46,30 @@ namespace SRP.Application
 
             services.AddMemoryCache();
 
-            services.AddSingleton<IConnectionMultiplexer>(
-                ConnectionMultiplexer.Connect("localhost:6379"));
+            services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = "REDIS_CONNECTION";
+                options.InstanceName = "redis-stack";
+            });
+            // Redis
+            var tBuilder = new ConfigurationBuilder();   
+            var tConfigRoot = tBuilder
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddEnvironmentVariables()
+                .Build();
+
+            var tRedisConnection = tConfigRoot[REDIS_CONNECTION]?? tConfigRoot.GetSection(REDIS_CONNECTION).ToString();
+            if(string.IsNullOrWhiteSpace(tRedisConnection))
+                throw new Exception($"Environmental variable for {REDIS_CONNECTION} not found!");
+
+            //services.AddSingleton<IConnectionMultiplexer>(
+            //    ConnectionMultiplexer.Connect(tRedisConnection));
+            services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = tRedisConnection;
+                options.InstanceName = "redis-stack";
+            });
+            
             services.AddScoped<ICacheBase, MemoryCacheBase>();
  
             // Return the services that have been configured
